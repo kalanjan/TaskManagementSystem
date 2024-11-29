@@ -1,83 +1,138 @@
-Task Management System
-A simple Task Management System that allows users to create, view, update, and delete tasks. This project is built using Flask for the backend and HTML/CSS/JavaScript for the frontend. The system focuses on core CRUD (Create, Read, Update, Delete) operations and provides a minimal user interface for task management.
-Features
-Backend (Flask API):
+# 📋 Task Management System
 
-Create a Task: Title, Description, Due Date, Status
-View All Tasks
-Update a Task
-Delete a Task
-Tasks are stored in an SQLite database.
-Frontend:
+<div align="center">
+  <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&q=80&w=2072" width="600" alt="Task Management Banner"/>
 
-Create New Task: Form for task creation.
-View Tasks: Displays all tasks with options to edit and delete.
-Task Filters: Filters to view tasks by their status (e.g., Pending, Completed).
-Task Status Toggle: Option to toggle the task status between Pending and Completed.
-Technologies Used
-Backend:
+  [![Made with Flask](https://img.shields.io/badge/Made%20with-Flask-black?style=for-the-badge&logo=flask)](https://flask.palletsprojects.com/)
+  [![Database](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)](https://www.sqlite.org/)
+  [![Frontend](https://img.shields.io/badge/Frontend-HTML%2FCSS%2FJS-yellow?style=for-the-badge)](https://developer.mozilla.org/)
+</div>
 
-Flask (Python web framework)
-SQLite (Database)
-Flask-SQLAlchemy (ORM for database management)
-Flask-CORS (For handling Cross-Origin Requests)
-Frontend:
+## 🌟 Features
 
-HTML (Markup for user interface)
-CSS (For styling the user interface)
-JavaScript (For interacting with the backend API and handling frontend logic)
-Project Structure
+### Backend API
+- ✨ **Create Tasks** - Add new tasks with title, description, due date, and status
+- 📝 **View Tasks** - Retrieve all tasks or filter by status
+- 🔄 **Update Tasks** - Modify existing task details
+- 🗑️ **Delete Tasks** - Remove unwanted tasks
+- 💾 **SQLite Database** - Persistent storage with SQLAlchemy ORM
+
+### Frontend Interface
+- 🎨 **Modern UI/UX** - Clean and intuitive user interface
+- 📱 **Responsive Design** - Works seamlessly on desktop and mobile
+- 🔍 **Task Filters** - Filter tasks by status (Pending/Completed)
+- ⚡ **Real-time Updates** - Instant feedback on task modifications
+
+## 🛠️ Tech Stack
+
+### Backend
+- **Flask** - Lightweight WSGI web application framework
+- **SQLite** - Self-contained, serverless database
+- **Flask-SQLAlchemy** - ORM for database operations
+- **Flask-CORS** - Cross-Origin Resource Sharing support
+
+### Frontend
+- **HTML5** - Structure and semantics
+- **CSS3** - Modern styling with Flexbox/Grid
+- **JavaScript** - Dynamic client-side functionality
+
+## 📁 Project Structure
+
+\`\`\`
 TaskManagementSystem/
-│
 ├── backend/
-│   ├── app.py                # Flask app with API routes
-│   ├── models.py             # Task database model
-│   ├── db.sqlite3            # SQLite database
-│   ├── requirements.txt      # Python dependencies
+│   ├── app.py           # Flask application & API routes
+│   ├── models.py        # Database models
+│   ├── db.sqlite3       # SQLite database
+│   └── requirements.txt # Python dependencies
 │
 ├── frontend/
-│   ├── index.html            # Main frontend HTML file
-│   ├── style.css             # CSS for styling
-│   ├── script.js             # JavaScript for frontend functionality
+│   ├── index.html      # Main HTML interface
+│   ├── style.css       # Styling definitions
+│   └── script.js       # Frontend logic
 │
-└── README.md                 # Project documentation
-Getting Started
-Step 1: Clone the Repository
-Clone the repository to your local machine:
+└── README.md           # Project documentation
+\`\`\`
 
-git clone https://github.com/kalanjan/TaskManagementSystem.git
-Navigate into the project directory:
+## 🚀 Getting Started
 
-cd TaskManagementSystem
-Step 2: Set Up the Backend
-Navigate to the backend directory:
+### Prerequisites
+- Python 3.8+
+- Modern web browser
+- Git (optional)
 
-cd backend
-Create a virtual environment (optional but recommended):
+### Installation
 
-python -m venv venv
-Activate the virtual environment:
+1. **Clone the Repository**
+   \`\`\`bash
+   git clone https://github.com/yourusername/TaskManagementSystem.git
+   cd TaskManagementSystem
+   \`\`\`
 
-Windows:
-venv\Scripts\activate
-Mac/Linux:
-source venv/bin/activate
-Install the required dependencies:
+2. **Set Up Backend**
+   \`\`\`bash
+   cd backend
+   python -m venv venv
 
-pip install -r requirements.txt
-Run the Flask app:
+   # Activate virtual environment
+   # Windows:
+   venv\Scripts\activate
+   # macOS/Linux:
+   source venv/bin/activate
 
-python app.py
-The backend server will be running at: http://127.0.0.1:5000
+   # Install dependencies
+   pip install -r requirements.txt
 
-Step 3: Set Up the Frontend
-Navigate to the frontend directory:
+   # Start the server
+   python app.py
+   \`\`\`
 
-cd ../frontend
-Open the index.html file in your browser:
+3. **Launch Frontend**
+   - Navigate to the \`frontend\` directory
+   - Open \`index.html\` in your browser
+   - For development, use VS Code's Live Server extension
 
-You can use VS Code's Live Server extension to open the file easily:
-Right-click on index.html and select Open with Live Server.
-Alternatively, open the file manually in a browser.
-The frontend will now interact with the backend API to display and manage tasks.
+## 🔧 API Endpoints
 
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET    | /tasks   | Retrieve all tasks |
+| POST   | /tasks   | Create a new task |
+| PUT    | /tasks/:id | Update a task |
+| DELETE | /tasks/:id | Delete a task |
+
+## 💡 Usage Examples
+
+### Creating a Task
+\`\`\`javascript
+fetch('http://localhost:5000/tasks', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    title: 'Complete Project',
+    description: 'Finish the task management system',
+    due_date: '2024-03-20',
+    status: 'pending'
+  })
+});
+\`\`\`
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (\`git checkout -b feature/AmazingFeature\`)
+3. Commit your changes (\`git commit -m 'Add some AmazingFeature'\`)
+4. Push to the branch (\`git push origin feature/AmazingFeature\`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- Flask documentation and community
+- SQLAlchemy documentation
+- Mozilla Developer Network (MDN) for frontend resources
