@@ -1,31 +1,248 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: #333;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.container {
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1.5s ease-out;
+}
+
+/* Task Form */
+.task-form {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  animation: slideUp 0.5s ease-in-out;
+}
+
+.task-form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #4CAF50;
+}
+
+.task-form input,
+.task-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: all 0.3s;
+}
+
+.task-form input:focus,
+.task-form textarea:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+
+.task-form button {
+  background-color: #5cb85c;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.task-form button:hover {
+  background-color: #4cae4c;
+}
+
+/* Task List */
+.task-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  animation: fadeIn 1s ease-out;
+}
+
+.task-item {
+  background-color: #fff;
+  padding: 20px;
+  width: 45%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.task-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.task-item .task-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  text-transform: capitalize;
+}
+
+.task-item .task-desc {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+.task-item .task-due-date {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #888;
+}
+
+.task-item .task-status {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  text-transform: capitalize;
+}
+
+.task-item .task-status.pending {
+  background-color: #f0ad4e;
+  color: #fff;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.task-item .task-status.completed {
+  background-color: #5bc0de;
+  color: #fff;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.task-item .task-actions {
+  margin-top: 10px;
+  text-align: right;
+}
+
+.task-item .task-actions button {
+  background-color: #d9534f;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: 10px;
+  transition: background-color 0.3s;
+}
+
+.task-item .task-actions button:hover {
+  background-color: #c9302c;
+}
+
+.task-item .task-actions .edit-btn {
+  background-color: #0275d8;
+}
+
+.task-item .task-actions .edit-btn:hover {
+  background-color: #025aa5;
+}
+
+/* Task Filter */
+.task-filter {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.task-filter select {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  transition: border-color 0.3s;
+}
+
+.task-filter select:focus {
+  border-color: #4CAF50;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .task-list {
+      flex-direction: column;
   }
-  
-  #app {
-    max-width: 600px;
-    margin: auto;
+
+  .task-item {
+      width: 100%;
   }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+}
+
+@media (max-width: 480px) {
+  .container {
+      width: 90%;
   }
-  
-  button {
-    cursor: pointer;
+
+  .task-form button {
+      width: 100%;
   }
-  
-  #taskList li {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin: 5px 0;
-    list-style: none;
+
+  .task-item {
+      width: 100%;
   }
-  
-  #filters button {
-    margin-right: 10px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
   }
-  
+  100% {
+      opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+      transform: translateY(50px);
+      opacity: 0;
+  }
+  100% {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
