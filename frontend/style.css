@@ -6,8 +6,9 @@
 }
 
 body {
-  font-family: 'Arial', sans-serif;
-  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  font-family: 'Roboto', sans-serif;
+  background: url('https://images.unsplash.com/photo-1521747116042-5e1d8c5ff5c2') no-repeat center center fixed;
+  background-size: cover;
   color: #333;
   line-height: 1.6;
   min-height: 100vh;
@@ -16,43 +17,56 @@ body {
   align-items: center;
   justify-content: center;
   padding: 20px;
+  text-align: center;
+  background-attachment: fixed;
+  font-weight: 400;
 }
 
+h1, h2 {
+  color: #fff;
+  font-family: 'Lora', serif;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Main Container */
 .container {
-  width: 80%;
+  width: 90%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 10px;
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 12px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
   animation: fadeIn 1.5s ease-out;
 }
 
 /* Task Form */
 .task-form {
   background-color: #ffffff;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 30px;
-  animation: slideUp 0.5s ease-in-out;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+  animation: slideInUp 0.6s ease-out;
+  text-align: left;
 }
 
 .task-form label {
   display: block;
+  font-size: 18px;
   font-weight: bold;
-  margin-bottom: 8px;
   color: #4CAF50;
+  margin-bottom: 10px;
+  text-transform: uppercase;
 }
 
 .task-form input,
 .task-form textarea {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  padding: 12px;
+  margin-bottom: 18px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
   font-size: 16px;
   transition: all 0.3s;
 }
@@ -64,18 +78,19 @@ body {
 }
 
 .task-form button {
-  background-color: #5cb85c;
+  background-color: #28a745;
   color: white;
   border: none;
-  padding: 10px 20px;
-  border-radius: 4px;
+  padding: 12px 25px;
+  border-radius: 6px;
   cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s;
+  font-size: 18px;
+  transition: background-color 0.3s ease, transform 0.2s ease-in-out;
 }
 
 .task-form button:hover {
-  background-color: #4cae4c;
+  background-color: #218838;
+  transform: scale(1.05);
 }
 
 /* Task List */
@@ -83,107 +98,110 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 20px;
-  animation: fadeIn 1s ease-out;
+  gap: 25px;
+  margin-top: 40px;
+  animation: fadeInUp 1s ease-out;
 }
 
 .task-item {
   background-color: #fff;
   padding: 20px;
-  width: 45%;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 48%;
+  border-radius: 10px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  animation: fadeInUp 0.5s ease-out;
+  animation: fadeInUp 0.6s ease-out;
+  position: relative;
 }
 
 .task-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
 }
 
 .task-item .task-title {
   font-size: 20px;
   font-weight: bold;
   color: #333;
+  margin-bottom: 10px;
   text-transform: capitalize;
 }
 
 .task-item .task-desc {
-  margin-top: 10px;
-  font-size: 14px;
+  font-size: 16px;
   color: #666;
+  margin-bottom: 10px;
 }
 
 .task-item .task-due-date {
-  margin-top: 10px;
-  font-size: 12px;
-  color: #888;
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 15px;
 }
 
 .task-item .task-status {
-  margin-top: 10px;
-  font-weight: bold;
+  padding: 6px 12px;
   font-size: 14px;
-  padding: 4px 8px;
-  border-radius: 4px;
+  font-weight: bold;
+  border-radius: 5px;
   text-transform: capitalize;
+  display: inline-block;
 }
 
 .task-item .task-status.pending {
-  background-color: #f0ad4e;
+  background-color: #ff9800;
   color: #fff;
-  animation: fadeIn 0.5s ease-out;
+  animation: pulse 1s infinite;
 }
 
 .task-item .task-status.completed {
-  background-color: #5bc0de;
+  background-color: #4caf50;
   color: #fff;
-  animation: fadeIn 0.5s ease-out;
+  animation: pulse 1s infinite;
 }
 
 .task-item .task-actions {
-  margin-top: 10px;
   text-align: right;
+  margin-top: 15px;
 }
 
 .task-item .task-actions button {
-  background-color: #d9534f;
+  background-color: #dc3545;
   color: #fff;
   border: none;
-  padding: 5px 10px;
-  border-radius: 4px;
+  padding: 8px 16px;
+  border-radius: 6px;
   cursor: pointer;
   font-size: 14px;
-  margin-left: 10px;
-  transition: background-color 0.3s;
+  margin-left: 12px;
+  transition: background-color 0.3s ease;
 }
 
 .task-item .task-actions button:hover {
-  background-color: #c9302c;
+  background-color: #c82333;
 }
 
 .task-item .task-actions .edit-btn {
-  background-color: #0275d8;
+  background-color: #007bff;
 }
 
 .task-item .task-actions .edit-btn:hover {
-  background-color: #025aa5;
+  background-color: #0056b3;
 }
 
 /* Task Filter */
 .task-filter {
-  text-align: center;
   margin-bottom: 30px;
+  animation: fadeInUp 1s ease-out;
 }
 
 .task-filter select {
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 4px;
-  border: 1px solid #ddd;
+  padding: 12px 20px;
+  font-size: 18px;
+  border-radius: 8px;
+  border: 2px solid #ddd;
   background-color: #fff;
-  transition: border-color 0.3s;
+  transition: border-color 0.3s ease;
 }
 
 .task-filter select:focus {
@@ -199,15 +217,16 @@ body {
   .task-item {
       width: 100%;
   }
+
+  .task-form {
+      margin-top: 20px;
+  }
 }
 
 @media (max-width: 480px) {
   .container {
-      width: 90%;
-  }
-
-  .task-form button {
       width: 100%;
+      padding: 15px;
   }
 
   .task-item {
@@ -236,7 +255,7 @@ body {
   }
 }
 
-@keyframes slideUp {
+@keyframes slideInUp {
   0% {
       transform: translateY(50px);
       opacity: 0;
@@ -244,5 +263,20 @@ body {
   100% {
       transform: translateY(0);
       opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+      transform: scale(1);
+      opacity: 0.7;
+  }
+  50% {
+      transform: scale(1.1);
+      opacity: 1;
+  }
+  100% {
+      transform: scale(1);
+      opacity: 0.7;
   }
 }
